@@ -1,0 +1,26 @@
+
+State Machine - |piano|time_ten_digit
+Name time_ten_digit.1001 time_ten_digit.1000 time_ten_digit.0111 time_ten_digit.0110 time_ten_digit.0101 time_ten_digit.0100 time_ten_digit.0011 time_ten_digit.0010 time_ten_digit.0001 time_ten_digit.0000 
+time_ten_digit.0000 0 0 0 0 0 0 0 0 0 0 
+time_ten_digit.0001 0 0 0 0 0 0 0 0 1 1 
+time_ten_digit.0010 0 0 0 0 0 0 0 1 0 1 
+time_ten_digit.0011 0 0 0 0 0 0 1 0 0 1 
+time_ten_digit.0100 0 0 0 0 0 1 0 0 0 1 
+time_ten_digit.0101 0 0 0 0 1 0 0 0 0 1 
+time_ten_digit.0110 0 0 0 1 0 0 0 0 0 1 
+time_ten_digit.0111 0 0 1 0 0 0 0 0 0 1 
+time_ten_digit.1000 0 1 0 0 0 0 0 0 0 1 
+time_ten_digit.1001 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |piano|ten_digit
+Name ten_digit.1001 ten_digit.1000 ten_digit.0111 ten_digit.0110 ten_digit.0101 ten_digit.0100 ten_digit.0011 ten_digit.0010 ten_digit.0001 ten_digit.0000 
+ten_digit.0000 0 0 0 0 0 0 0 0 0 0 
+ten_digit.0001 0 0 0 0 0 0 0 0 1 1 
+ten_digit.0010 0 0 0 0 0 0 0 1 0 1 
+ten_digit.0011 0 0 0 0 0 0 1 0 0 1 
+ten_digit.0100 0 0 0 0 0 1 0 0 0 1 
+ten_digit.0101 0 0 0 0 1 0 0 0 0 1 
+ten_digit.0110 0 0 0 1 0 0 0 0 0 1 
+ten_digit.0111 0 0 1 0 0 0 0 0 0 1 
+ten_digit.1000 0 1 0 0 0 0 0 0 0 1 
+ten_digit.1001 1 0 0 0 0 0 0 0 0 1 

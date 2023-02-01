@@ -1,0 +1,106 @@
+`define TimeExpire_keypad 32'd500000
+`define TimeExpire_dot 32'd500
+`define TimeExpire_4Hz 32'd12500000
+module piano(dot_row,dot_col,clk,rst,keypad_row,keypad_col);
+	 input clk,rst;
+    input [3:0]keypad_col;
+    
+    output reg [3:0]keypad_row;
+    output reg [7:0]dot_row;
+	 output reg [15:0]dot_col;
+    
+	 reg [15:0]dot_col1;
+	 reg [15:0]dot_col2;
+	 reg [15:0]dot_col3;
+	 reg [15:0]dot_col4;
+    reg [31:0]keyDelay;
+    reg [31:0]count_keypad;
+    reg [4:0]keypadBuf;
+    reg [2:0]row_count;
+	 reg [31:0]count_matrix
+	 reg [31:0]count_down;
+
+    always @(posedge clk or negedge rst) begin
+        if(!rst)begin
+            keypad_row <= 4'b1111;
+            keyDelay <= 32'd0;
+            keypadBuf <= 5'b10000;
+        end else begin
+                if(keyDelay == `TimeExpire_keypad)begin
+                    keyDelay <= 32'd0;
+                    case ({keypad_row,keypad_col})
+                        8'b1110_1110 : keypadBuf <= 5'h7;
+                        8'b1101_1110 : keypadBuf <= 5'h8;
+                        8'b1011_1110 : keypadBuf <= 5'h9;
+                        8'b0111_1110 : keypadBuf <= 5'hc; 
+                        default: keypadBuf <= 5'he;
+                    endcase
+                    case(keypad_row)
+                        4'b1110 : keypad_row <= 4'b1101;
+                        4'b1101 : keypad_row <= 4'b1011;
+                        4'b1011 : keypad_row <= 4'b0111;
+                        4'b0111 : keypad_row <= 4'b1110;
+                        default : keypad_row <= 4'b1110; 
+                    endcase
+                end else begin
+                    keyDelay <= keyDelay + 32'd1;
+                end
+        end
+    end
+	 
+	 always @(posedge clk or negedge rst)begin
+		if(!rst)begin
+			   dot_col1<=16'b0011000000001100;
+				dot_col2<=16'b0000110000000110;
+				dot_col3<=16'b0000000011000000;
+				dot_col4<=16'b0011001100001100;
+		end else if(count_down == TimeExpire_4Hz)begin
+				dot_col1<=dot_col1>>1;
+				dot_col2<=dot_col2>>1;
+				dot_col3<=dot_col3>>1;
+				dot_col4<=dot_col4>>1;
+		  end else begin
+				count_down <= count_down + 32'd1;
+		  end
+	 end
+	 
+	 always @(posedge clk or negedge rst)begin
+        if(!rst)begin
+            count_matrix <= 32'd0;
+            row_count <= 3'd0;
+            dot_row <= 8'b0;
+				dot_col <= 16'b0000000000000010;
+        end else begin 
+            if(count_matrix == `TimeExpire_dot)begin
+                row_count <= row_count + 3'd1;
+					 count <= 32'd0;
+                case(row_count)
+                    3'd0 : dot_row <= 8'b01111111;
+                    3'd1 : dot_row <= 8'b10111111;
+                    3'd2 : dot_row <= 8'b11011111;
+                    3'd3 : dot_row <= 8'b11101111;
+                    3'd4 : dot_row <= 8'b11110111;
+                    3'd5 : dot_row <= 8'b11111011;
+                    3'd6 : dot_row <= 8'b11111101;
+                    3'd7 : dot_row <= 8'b11111110;
+                endcase
+                case(row_count)
+                    3'd0 : begin
+										dot_col <= dot_col1;
+										
+									end	
+                    3'd1 : dot_col <= dot_col1;
+                    3'd2 : dot_col <= dot_col2;
+                    3'd3 : dot_col <= dot_col2;
+                    3'd4 : dot_col <= dot_col3;
+                    3'd5 : dot_col <= dot_col3;
+                    3'd6 : dot_col <= dot_col4;
+                    3'd7 : dot_col <= dot_col4; 
+                endcase
+            end else begin
+                count_matrix <= count_matrix + 32'd1;
+            end
+        end
+    end
+
+endmodule

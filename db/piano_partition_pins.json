@@ -1,0 +1,253 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "dot_row[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_row[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_row[2]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_row[3]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_row[4]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_row[5]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_row[6]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_row[7]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[2]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[3]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[4]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[5]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[6]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[7]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[8]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[9]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[10]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[11]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[12]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[13]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[14]",
+					"strict" : false
+				},
+				{
+					"name" : "dot_col[15]",
+					"strict" : false
+				},
+				{
+					"name" : "keypad_row[0]",
+					"strict" : false
+				},
+				{
+					"name" : "keypad_row[1]",
+					"strict" : false
+				},
+				{
+					"name" : "keypad_row[2]",
+					"strict" : false
+				},
+				{
+					"name" : "keypad_row[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout3[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout3[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout3[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout4[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout4[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout4[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout4[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sevenout4[6]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "keypad_col[0]",
+					"strict" : false
+				},
+				{
+					"name" : "keypad_col[1]",
+					"strict" : false
+				},
+				{
+					"name" : "keypad_col[2]",
+					"strict" : false
+				},
+				{
+					"name" : "keypad_col[3]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

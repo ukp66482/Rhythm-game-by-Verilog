@@ -1,0 +1,655 @@
+Analysis & Synthesis report for piano
+Sun Jan 01 23:42:06 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |piano|time_ten_digit
+  9. State Machine - |piano|ten_digit
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sun Jan 01 23:42:06 2023       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; piano                                       ;
+; Top-level Entity Name           ; piano                                       ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 583                                         ;
+; Total pins                      ; 62                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEFA4F23C7        ;                    ;
+; Top-level entity name                                                           ; piano              ; piano              ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                       ;
++----------------------------------+-----------------+------------------------+--------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path         ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------+---------+
+; piano.v                          ; yes             ; User Verilog HDL File  ; C:/intelFPGA_lite/18.1/final/piano.v ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 399       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 672       ;
+;     -- 7 input functions                    ; 2         ;
+;     -- 6 input functions                    ; 111       ;
+;     -- 5 input functions                    ; 45        ;
+;     -- 4 input functions                    ; 32        ;
+;     -- <=3 input functions                  ; 482       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 583       ;
+;                                             ;           ;
+; I/O pins                                    ; 62        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 583       ;
+; Total fan-out                               ; 4463      ;
+; Average fan-out                             ; 3.24      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |piano                     ; 672 (672)           ; 583 (583)                 ; 0                 ; 0          ; 62   ; 0            ; |piano              ; piano       ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |piano|time_ten_digit                                                                                                                                                                                                           ;
++---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+
+; Name                ; time_ten_digit.1001 ; time_ten_digit.1000 ; time_ten_digit.0111 ; time_ten_digit.0110 ; time_ten_digit.0101 ; time_ten_digit.0100 ; time_ten_digit.0011 ; time_ten_digit.0010 ; time_ten_digit.0001 ; time_ten_digit.0000 ;
++---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+
+; time_ten_digit.0000 ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ;
+; time_ten_digit.0001 ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 1                   ;
+; time_ten_digit.0010 ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 1                   ;
+; time_ten_digit.0011 ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 1                   ;
+; time_ten_digit.0100 ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; time_ten_digit.0101 ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; time_ten_digit.0110 ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; time_ten_digit.0111 ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; time_ten_digit.1000 ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; time_ten_digit.1001 ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
++---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |piano|ten_digit                                                                                                                                                         ;
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+; Name           ; ten_digit.1001 ; ten_digit.1000 ; ten_digit.0111 ; ten_digit.0110 ; ten_digit.0101 ; ten_digit.0100 ; ten_digit.0011 ; ten_digit.0010 ; ten_digit.0001 ; ten_digit.0000 ;
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+; ten_digit.0000 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ;
+; ten_digit.0001 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 1              ;
+; ten_digit.0010 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 1              ;
+; ten_digit.0011 ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 1              ;
+; ten_digit.0100 ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 1              ;
+; ten_digit.0101 ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; ten_digit.0110 ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; ten_digit.0111 ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; ten_digit.1000 ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
+; ten_digit.1001 ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ;
++----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; dot_pointt1[0..7,12..15]                ; Stuck at GND due to stuck port data_in ;
+; dot_pointt2[0..7,12..15]                ; Stuck at GND due to stuck port data_in ;
+; dot_pointt3[0..7,12..15]                ; Stuck at GND due to stuck port data_in ;
+; dot_pointt4[0..7,12..15]                ; Stuck at GND due to stuck port data_in ;
+; dot_pointt5[0..7,12..15]                ; Stuck at GND due to stuck port data_in ;
+; dot_pointt6[0..7,12..15]                ; Stuck at GND due to stuck port data_in ;
+; dot_pointt7[0..7,12..15]                ; Stuck at GND due to stuck port data_in ;
+; dot_pointt8[0..2,4..7,12..15]           ; Stuck at GND due to stuck port data_in ;
+; dot_point1[0..2,7,12..15]               ; Stuck at GND due to stuck port data_in ;
+; dot_point2[0..2,7,12..15]               ; Stuck at GND due to stuck port data_in ;
+; dot_point3[0..2,7,12..15]               ; Stuck at GND due to stuck port data_in ;
+; dot_point4[0..2,7,12..15]               ; Stuck at GND due to stuck port data_in ;
+; dot_point5[0..2,7,12..15]               ; Stuck at GND due to stuck port data_in ;
+; dot_point6[0..2,7,12..15]               ; Stuck at GND due to stuck port data_in ;
+; dot_point7[0..2,7,12..15]               ; Stuck at GND due to stuck port data_in ;
+; dot_point8[0..2,7,12..15]               ; Stuck at GND due to stuck port data_in ;
+; temp_time[4..7]                         ; Lost fanout                            ;
+; dot_point6[3]                           ; Merged with dot_point1[3]              ;
+; dot_point7[3]                           ; Merged with dot_point1[3]              ;
+; dot_point3[3]                           ; Merged with dot_point2[3]              ;
+; dot_point5[3]                           ; Merged with dot_point1[6]              ;
+; dot_point2[5]                           ; Merged with dot_point2[4]              ;
+; dot_point7[4,5]                         ; Merged with dot_point2[4]              ;
+; dot_point3[5]                           ; Merged with dot_point3[4]              ;
+; dot_point6[4,5]                         ; Merged with dot_point3[4]              ;
+; dot_point8[5,6]                         ; Merged with dot_point8[4]              ;
+; dot_point1[8]                           ; Merged with dot_point1[11]             ;
+; dot_point5[8]                           ; Merged with dot_point1[11]             ;
+; dot_point3[8]                           ; Merged with dot_point2[8]              ;
+; dot_point7[8]                           ; Merged with dot_point6[8]              ;
+; dot_point1[9]                           ; Merged with dot_point1[10]             ;
+; dot_point2[9]                           ; Merged with dot_point2[10]             ;
+; dot_point7[9,10]                        ; Merged with dot_point2[10]             ;
+; dot_point3[9]                           ; Merged with dot_point3[10]             ;
+; dot_point6[9,10]                        ; Merged with dot_point3[10]             ;
+; dot_point8[9,11]                        ; Merged with dot_point8[10]             ;
+; dot_point5[11]                          ; Merged with dot_point4[11]             ;
+; dot_random1[1..13]                      ; Merged with dot_random1[0]             ;
+; dot_random2[1..13]                      ; Merged with dot_random2[0]             ;
+; dot_random3[1..13]                      ; Merged with dot_random3[0]             ;
+; dot_random4[1..13]                      ; Merged with dot_random4[0]             ;
+; dot_pointt1[8]                          ; Merged with dot_pointt1[11]            ;
+; dot_pointt5[8]                          ; Merged with dot_pointt1[11]            ;
+; dot_pointt3[8]                          ; Merged with dot_pointt2[8]             ;
+; dot_pointt7[8]                          ; Merged with dot_pointt6[8]             ;
+; dot_pointt1[9]                          ; Merged with dot_pointt1[10]            ;
+; dot_pointt2[9]                          ; Merged with dot_pointt2[10]            ;
+; dot_pointt7[9,10]                       ; Merged with dot_pointt2[10]            ;
+; dot_pointt3[9]                          ; Merged with dot_pointt3[10]            ;
+; dot_pointt6[9,10]                       ; Merged with dot_pointt3[10]            ;
+; dot_pointt8[9,11]                       ; Merged with dot_pointt8[10]            ;
+; dot_pointt5[11]                         ; Merged with dot_pointt4[11]            ;
+; dot_random1[15]                         ; Merged with dot_random1[14]            ;
+; dot_random2[15]                         ; Merged with dot_random2[14]            ;
+; dot_random3[15]                         ; Merged with dot_random3[14]            ;
+; dot_random4[15]                         ; Merged with dot_random4[14]            ;
+; dot_point1[5]                           ; Merged with dot_point1[4]              ;
+; dot_point5[6]                           ; Merged with dot_point4[6]              ;
+; dot_random1[0]                          ; Stuck at GND due to stuck port data_in ;
+; dot_random2[0]                          ; Stuck at GND due to stuck port data_in ;
+; dot_random3[0]                          ; Stuck at GND due to stuck port data_in ;
+; dot_random4[0]                          ; Stuck at GND due to stuck port data_in ;
+; sevenout4[1]~reg0                       ; Stuck at GND due to stuck port data_in ;
+; time_ten_digit.0101                     ; Lost fanout                            ;
+; time_ten_digit.0110                     ; Lost fanout                            ;
+; time_ten_digit.0111                     ; Lost fanout                            ;
+; time_ten_digit.1000                     ; Lost fanout                            ;
+; time_ten_digit.1001                     ; Lost fanout                            ;
+; time_ten_digit~14                       ; Lost fanout                            ;
+; time_ten_digit~15                       ; Lost fanout                            ;
+; time_ten_digit~16                       ; Lost fanout                            ;
+; time_ten_digit~17                       ; Lost fanout                            ;
+; ten_digit~14                            ; Lost fanout                            ;
+; ten_digit~15                            ; Lost fanout                            ;
+; ten_digit~16                            ; Lost fanout                            ;
+; ten_digit~17                            ; Lost fanout                            ;
+; Total Number of Removed Registers = 279 ;                                        ;
++-----------------------------------------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                          ;
++-----------------+---------------------------+----------------------------------------+
+; Register name   ; Reason for Removal        ; Registers Removed due to This Register ;
++-----------------+---------------------------+----------------------------------------+
+; dot_pointt1[15] ; Stuck at GND              ; dot_point1[15]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt1[14] ; Stuck at GND              ; dot_point1[14]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt1[13] ; Stuck at GND              ; dot_point1[13]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt1[12] ; Stuck at GND              ; dot_point1[12]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt1[7]  ; Stuck at GND              ; dot_point1[7]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt1[2]  ; Stuck at GND              ; dot_point1[2]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt1[1]  ; Stuck at GND              ; dot_point1[1]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt1[0]  ; Stuck at GND              ; dot_point1[0]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt2[15] ; Stuck at GND              ; dot_point2[15]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt2[14] ; Stuck at GND              ; dot_point2[14]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt2[13] ; Stuck at GND              ; dot_point2[13]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt2[12] ; Stuck at GND              ; dot_point2[12]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt2[7]  ; Stuck at GND              ; dot_point2[7]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt2[2]  ; Stuck at GND              ; dot_point2[2]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt2[1]  ; Stuck at GND              ; dot_point2[1]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt2[0]  ; Stuck at GND              ; dot_point2[0]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt3[15] ; Stuck at GND              ; dot_point3[15]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt3[14] ; Stuck at GND              ; dot_point3[14]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt3[13] ; Stuck at GND              ; dot_point3[13]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt3[12] ; Stuck at GND              ; dot_point3[12]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt3[7]  ; Stuck at GND              ; dot_point3[7]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt3[2]  ; Stuck at GND              ; dot_point3[2]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt3[1]  ; Stuck at GND              ; dot_point3[1]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt3[0]  ; Stuck at GND              ; dot_point3[0]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt4[15] ; Stuck at GND              ; dot_point4[15]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt4[14] ; Stuck at GND              ; dot_point4[14]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt4[13] ; Stuck at GND              ; dot_point4[13]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt4[12] ; Stuck at GND              ; dot_point4[12]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt4[7]  ; Stuck at GND              ; dot_point4[7]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt4[2]  ; Stuck at GND              ; dot_point4[2]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt4[1]  ; Stuck at GND              ; dot_point4[1]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt4[0]  ; Stuck at GND              ; dot_point4[0]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt5[15] ; Stuck at GND              ; dot_point5[15]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt5[14] ; Stuck at GND              ; dot_point5[14]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt5[13] ; Stuck at GND              ; dot_point5[13]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt5[12] ; Stuck at GND              ; dot_point5[12]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt5[7]  ; Stuck at GND              ; dot_point5[7]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt5[2]  ; Stuck at GND              ; dot_point5[2]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt5[1]  ; Stuck at GND              ; dot_point5[1]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt5[0]  ; Stuck at GND              ; dot_point5[0]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt6[15] ; Stuck at GND              ; dot_point6[15]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt6[14] ; Stuck at GND              ; dot_point6[14]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt6[13] ; Stuck at GND              ; dot_point6[13]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt6[12] ; Stuck at GND              ; dot_point6[12]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt6[7]  ; Stuck at GND              ; dot_point6[7]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt6[2]  ; Stuck at GND              ; dot_point6[2]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt6[1]  ; Stuck at GND              ; dot_point6[1]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt6[0]  ; Stuck at GND              ; dot_point6[0]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt7[15] ; Stuck at GND              ; dot_point7[15]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt7[14] ; Stuck at GND              ; dot_point7[14]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt7[13] ; Stuck at GND              ; dot_point7[13]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt7[12] ; Stuck at GND              ; dot_point7[12]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt7[7]  ; Stuck at GND              ; dot_point7[7]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt7[2]  ; Stuck at GND              ; dot_point7[2]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt7[1]  ; Stuck at GND              ; dot_point7[1]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt7[0]  ; Stuck at GND              ; dot_point7[0]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt8[15] ; Stuck at GND              ; dot_point8[15]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt8[14] ; Stuck at GND              ; dot_point8[14]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt8[13] ; Stuck at GND              ; dot_point8[13]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt8[12] ; Stuck at GND              ; dot_point8[12]                         ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt8[7]  ; Stuck at GND              ; dot_point8[7]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt8[2]  ; Stuck at GND              ; dot_point8[2]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt8[1]  ; Stuck at GND              ; dot_point8[1]                          ;
+;                 ; due to stuck port data_in ;                                        ;
+; dot_pointt8[0]  ; Stuck at GND              ; dot_point8[0]                          ;
+;                 ; due to stuck port data_in ;                                        ;
++-----------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 583   ;
+; Number of registers using Synchronous Clear  ; 235   ;
+; Number of registers using Synchronous Load   ; 55    ;
+; Number of registers using Asynchronous Clear ; 460   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 352   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; keypad_row[1]~reg0                      ; 9       ;
+; keypad_row[2]~reg0                      ; 9       ;
+; keypad_row[3]~reg0                      ; 9       ;
+; sevenout1[6]~reg0                       ; 2       ;
+; sevenout2[6]~reg0                       ; 1       ;
+; sevenout3[6]~reg0                       ; 2       ;
+; sevenout4[0]~reg0                       ; 1       ;
+; sevenout4[3]~reg0                       ; 1       ;
+; sevenout4[4]~reg0                       ; 1       ;
+; keyDelay[3]                             ; 2       ;
+; keyDelay[2]                             ; 2       ;
+; keyDelay[1]                             ; 2       ;
+; Time[5]                                 ; 5       ;
+; Time[3]                                 ; 8       ;
+; lfsr[15]                                ; 1       ;
+; lfsr[14]                                ; 1       ;
+; lfsr[13]                                ; 1       ;
+; lfsr[12]                                ; 1       ;
+; lfsr[11]                                ; 1       ;
+; lfsr[10]                                ; 1       ;
+; lfsr[9]                                 ; 1       ;
+; lfsr[7]                                 ; 1       ;
+; lfsr[5]                                 ; 1       ;
+; lfsr[3]                                 ; 1       ;
+; lfsr[2]                                 ; 1       ;
+; Total number of inverted registers = 25 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 16:1               ; 23 bits   ; 230 LEs       ; 138 LEs              ; 92 LEs                 ; Yes        ; |piano|dot_point4[4]       ;
+; 16:1               ; 6 bits    ; 60 LEs        ; 36 LEs               ; 24 LEs                 ; Yes        ; |piano|sevenout3[3]~reg0   ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |piano|dot_col[13]~reg0    ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |piano|dot_col[15]~reg0    ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |piano|dot_col[10]~reg0    ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 16 LEs               ; 2 LEs                  ; Yes        ; |piano|dot_col[11]~reg0    ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |piano|time_ten_digit      ;
+; 10:1               ; 10 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |piano|ten_digit           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 583                         ;
+;     CLR               ; 69                          ;
+;     CLR SCLR          ; 125                         ;
+;     CLR SLD           ; 36                          ;
+;     ENA               ; 41                          ;
+;     ENA CLR           ; 187                         ;
+;     ENA CLR SCLR      ; 40                          ;
+;     ENA CLR SCLR SLD  ; 2                           ;
+;     ENA CLR SLD       ; 1                           ;
+;     ENA SCLR          ; 65                          ;
+;     ENA SCLR SLD      ; 3                           ;
+;     ENA SLD           ; 13                          ;
+;     plain             ; 1                           ;
+; arriav_lcell_comb     ; 681                         ;
+;     arith             ; 347                         ;
+;         1 data inputs ; 331                         ;
+;         2 data inputs ; 16                          ;
+;     extend            ; 2                           ;
+;         7 data inputs ; 2                           ;
+;     normal            ; 322                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 36                          ;
+;         2 data inputs ; 47                          ;
+;         3 data inputs ; 50                          ;
+;         4 data inputs ; 32                          ;
+;         5 data inputs ; 45                          ;
+;         6 data inputs ; 111                         ;
+;     shared            ; 10                          ;
+;         3 data inputs ; 10                          ;
+; boundary_port         ; 62                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.30                        ;
+; Average LUT depth     ; 2.67                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sun Jan 01 23:41:58 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off piano -c piano
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file piano.v
+    Info (12023): Found entity 1: piano File: C:/intelFPGA_lite/18.1/final/piano.v Line: 12
+Info (12127): Elaborating entity "piano" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at piano.v(76): object "grade" assigned a value but never read File: C:/intelFPGA_lite/18.1/final/piano.v Line: 76
+Warning (10230): Verilog HDL assignment warning at piano.v(186): truncated value with size 10 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 186
+Warning (10230): Verilog HDL assignment warning at piano.v(189): truncated value with size 10 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 189
+Warning (10230): Verilog HDL assignment warning at piano.v(192): truncated value with size 10 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 192
+Warning (10230): Verilog HDL assignment warning at piano.v(195): truncated value with size 10 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 195
+Warning (10230): Verilog HDL assignment warning at piano.v(198): truncated value with size 10 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 198
+Warning (10230): Verilog HDL assignment warning at piano.v(201): truncated value with size 10 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 201
+Warning (10230): Verilog HDL assignment warning at piano.v(204): truncated value with size 10 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 204
+Warning (10230): Verilog HDL assignment warning at piano.v(207): truncated value with size 10 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 207
+Warning (10230): Verilog HDL assignment warning at piano.v(210): truncated value with size 10 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 210
+Warning (10230): Verilog HDL assignment warning at piano.v(212): truncated value with size 10 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 212
+Warning (10230): Verilog HDL assignment warning at piano.v(499): truncated value with size 9 to match size of target (8) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 499
+Warning (10230): Verilog HDL assignment warning at piano.v(502): truncated value with size 8 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 502
+Warning (10230): Verilog HDL assignment warning at piano.v(505): truncated value with size 8 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 505
+Warning (10230): Verilog HDL assignment warning at piano.v(508): truncated value with size 8 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 508
+Warning (10230): Verilog HDL assignment warning at piano.v(511): truncated value with size 8 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 511
+Warning (10230): Verilog HDL assignment warning at piano.v(514): truncated value with size 8 to match size of target (4) File: C:/intelFPGA_lite/18.1/final/piano.v Line: 514
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "sevenout4[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/final/piano.v Line: 499
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 17 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/intelFPGA_lite/18.1/final/output_files/piano.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 845 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 56 output pins
+    Info (21061): Implemented 783 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 4870 megabytes
+    Info: Processing ended: Sun Jan 01 23:42:06 2023
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:16
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/intelFPGA_lite/18.1/final/output_files/piano.map.smsg.
+
+
